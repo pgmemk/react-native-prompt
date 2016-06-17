@@ -7,7 +7,7 @@ import {
   TouchableWithoutFeedback,
   View
 } from 'react-native';
-const Portal = require('react-native/Libraries/Portal/Portal');
+// const Portal = require('react-native/Libraries/Portal/Portal');
 const styles = require('./styles');
 
 const Prompt = React.createClass({
@@ -56,20 +56,20 @@ const Prompt = React.createClass({
   },
   componentWillMount() {
     this._tag = '';
-    if (Platform.OS === 'android') {
-      this._tag = Portal.allocateTag();
-    }
+    // if (Platform.OS === 'android') {
+    //   this._tag = Portal.allocateTag();
+    // }
   },
-  componentDidMount() {
-    if (Platform.OS === 'android') {
-      this._showOrCloseModal(this.props.visible);
-    }
-  },
+  // componentDidMount() {
+  //   if (Platform.OS === 'android') {
+  //     this._showOrCloseModal(this.props.visible);
+  //   }
+  // },
   componentWillUnmount() {
-    if (Platform.OS === 'android') {
-      Portal.closeModal(this._tag);
-      this._tag = '';
-    }
+    // if (Platform.OS === 'android') {
+    //   Portal.closeModal(this._tag);
+    //   this._tag = '';
+    // }
   },
   componentWillReceiveProps(nextProps) {
     if (nextProps.visible !== this.props.visible) {
@@ -81,15 +81,15 @@ const Prompt = React.createClass({
       this.setState({ value: this.props.defaultValue });
     }
 
-    if (Platform.OS === 'ios') {
-      return;
-    }
+    // if (Platform.OS === 'ios') {
+    //   return;
+    // }
 
-    if (visible) {
-      Portal.showModal(this._tag, this._renderDialog());
-    } else {
-      Portal.closeModal(this._tag);
-    }
+    // if (visible) {
+    //   Portal.showModal(this._tag, this._renderDialog());
+    // } else {
+    //   Portal.closeModal(this._tag);
+    // }
   },
   _onChangeText(value) {
     this.setState({ value });
@@ -159,15 +159,15 @@ const Prompt = React.createClass({
     );
   },
   render() {
-    if (Platform.OS === 'ios') {
+    // if (Platform.OS === 'ios') {
       return (
         <Modal transparent={true} visible={this.props.visible}>
           {this._renderDialog()}
         </Modal>
       );
-    } else {
-      return <View/>;
-    }
+    // } else {
+    //   return <View/>;
+    // }
   }
 });
 
