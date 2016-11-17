@@ -5,6 +5,7 @@ import {
   Text,
   TextInput,
   TouchableWithoutFeedback,
+  TouchableOpacity,
   View
 } from 'react-native';
 // const Portal = require('react-native/Libraries/Portal/Portal');
@@ -139,20 +140,20 @@ const Prompt = React.createClass({
               underlineColorAndroid="white"/>
           </View>
           <View style={[styles.dialogFooter, { borderColor }]}>
-            <TouchableWithoutFeedback onPress={this._onCancelPress}>
+            <TouchableOpacity  onPress={this._onCancelPress} style={{flex: 1}}>
               <View style={[styles.dialogAction, buttonStyle, cancelButtonStyle]}>
                 <Text style={[styles.dialogActionText, buttonTextStyle, cancelButtonTextStyle]}>
                   {cancelText}
                 </Text>
               </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback onPress={this._onSubmitPress}>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this._onSubmitPress} style={{flex: 1}}>
               <View style={[styles.dialogAction, buttonStyle, submitButtonStyle]}>
                 <Text style={[styles.dialogActionText, buttonTextStyle, submitButtonTextStyle]}>
                   {submitText}
                 </Text>
               </View>
-            </TouchableWithoutFeedback>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
